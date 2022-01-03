@@ -51,7 +51,7 @@ describe("forgotPassword mutation", () => {
     expect(token.id).not.toBe(user.tokens[0].id)
     expect(token.type).toBe("RESET_PASSWORD")
     expect(token.sentTo).toBe(user.email)
-    // expect(token.hashedToken).toBe(hash256(generatedToken))
+    expect(token.hashedToken).toBe(hash256(generatedToken))
     expect(token.expiresAt > new Date()).toBe(true)
     expect(previewEmail).toBeCalled()
   })
